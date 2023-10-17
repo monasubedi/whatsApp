@@ -4,6 +4,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import ChatListScreen from "../screens/ChatListScreen";
 import Settings from "../screens/Settings";
 import { Ionicons } from "@expo/vector-icons";
+import ChatScreen from "../screens/ChatScreen";
 
 const TabNavigator = () => {
   const Tab = createBottomTabNavigator();
@@ -39,7 +40,16 @@ const MainNavigator = () => {
   const Stack = createStackNavigator();
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Home" component={TabNavigator} />
+      <Stack.Screen
+        name="Home"
+        component={TabNavigator}
+        options={{ headerTitle: "" }}
+      />
+      <Stack.Screen
+        name="Chat"
+        component={ChatScreen}
+        options={{ headerTitle: "" }}
+      />
       <Stack.Screen name="ChatSettings" component={ChatSettings} />
     </Stack.Navigator>
   );
